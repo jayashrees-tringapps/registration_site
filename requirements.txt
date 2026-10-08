@@ -1,0 +1,5 @@
+reflex
+psycopg2-binary
+python-dotenv
+sqlmodel
+alembic

@@ -1,0 +1,41 @@
+.radix-themes { --default-font-family: Cambria, Georgia, serif; --heading-font-family: Cambria, Georgia, serif; --accent-9: #7c3aed; --accent-10: #6d3df0; --focus-8: #7c3aed; --gray-12: #5b21b6; --gray-11: #7c5cc4; --gray-a12: #5b21b6; background: transparent !important; }
+html { min-height: 100%; background: linear-gradient(160deg, #e9e1ff 0%, #f6f3ff 55%, #ffffff 100%) fixed; }
+body::before { content: ""; position: fixed; width: 460px; height: 460px; border-radius: 50%; background: rgba(139, 92, 246, 0.18); left: -170px; bottom: -200px; z-index: -1; animation: drift 9s ease-in-out infinite; pointer-events: none; }
+body::after { content: ""; position: fixed; width: 360px; height: 360px; border-radius: 36px; background: rgba(109, 61, 240, 0.14); right: -110px; top: -150px; transform: rotate(35deg); z-index: -1; animation: drift 11s ease-in-out infinite reverse; pointer-events: none; }
+@keyframes drift { 0%, 100% { transform: translateY(0) rotate(35deg); } 50% { transform: translateY(-18px) rotate(45deg); } }
+.rt-Card { background: #fff !important; border-radius: 24px !important; padding: 40px 44px !important; box-shadow: 0 30px 70px rgba(91, 58, 200, 0.22) !important; animation: rise 0.7s ease both; }
+.rt-Card::before, .rt-Card::after { box-shadow: none !important; }
+@keyframes rise { from { opacity: 0; transform: translateY(30px) scale(0.98); } to { opacity: 1; transform: none; } }
+.rt-Heading { color: #5b21b6 !important; }
+.rt-Card form .rt-Flex > * { animation: fadeup 0.5s ease both; }
+.rt-Card form .rt-Flex > *:nth-child(1) { animation-delay: 0.05s; }
+.rt-Card form .rt-Flex > *:nth-child(2) { animation-delay: 0.1s; }
+.rt-Card form .rt-Flex > *:nth-child(3) { animation-delay: 0.15s; }
+.rt-Card form .rt-Flex > *:nth-child(4) { animation-delay: 0.2s; }
+.rt-Card form .rt-Flex > *:nth-child(5) { animation-delay: 0.25s; }
+.rt-Card form .rt-Flex > *:nth-child(6) { animation-delay: 0.3s; }
+.rt-Card form .rt-Flex > *:nth-child(7) { animation-delay: 0.35s; }
+.rt-Card form .rt-Flex > *:nth-child(8) { animation-delay: 0.4s; }
+.rt-Card form .rt-Flex > *:nth-child(9) { animation-delay: 0.45s; }
+@keyframes fadeup { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+.rt-TextFieldRoot { height: 44px; border-radius: 10px; background: #fff; border: 1.5px solid #e7e2f6; box-shadow: none; transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s; }
+.rt-TextFieldRoot::before { box-shadow: none !important; }
+.rt-TextFieldRoot:hover { border-color: #cdbff5; }
+.rt-TextFieldRoot:focus-within { border-color: #7c3aed; box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.12); transform: translateY(-1px); outline: none !important; }
+.rt-TextFieldInput { color: #5b21b6; }
+.rt-SelectTrigger { width: 100%; height: 44px; justify-content: space-between; border-radius: 10px; background: #fff; border: 1.5px solid #e7e2f6; box-shadow: none; color: #5b21b6; transition: border-color 0.25s; }
+.rt-SelectTrigger::before { box-shadow: none !important; }
+.rt-SelectTrigger:hover { border-color: #cdbff5; background: #fff; }
+.rt-SelectContent, .rt-PopperContent, [role="listbox"] { background: #fff !important; border: 1.5px solid #e7e2f6; border-radius: 12px; box-shadow: 0 16px 36px rgba(91, 58, 200, 0.22); z-index: 9999; }
+.rt-SelectItem { color: #5b21b6; border-radius: 8px; padding: 6px 12px; cursor: pointer; transition: background 0.15s; }
+.rt-SelectItem[data-highlighted] { background: #7c3aed !important; color: #fff !important; }
+.rt-Button { background: linear-gradient(135deg, #8b5cf6, #6d3df0) !important; color: #fff !important; border-radius: 10px !important; height: 44px; font-weight: 600; cursor: pointer; box-shadow: 0 10px 22px rgba(109, 61, 240, 0.35); transition: transform 0.2s, box-shadow 0.2s; }
+.rt-Button:hover { transform: translateY(-2px); box-shadow: 0 14px 28px rgba(109, 61, 240, 0.45); }
+.rt-Button:active { transform: scale(0.98); }
+.rt-Button.rt-variant-soft { background: #f1ecff !important; color: #6d3df0 !important; box-shadow: none; }
+[id="media_upload"] { border: 2px dashed #b9a3f8 !important; border-radius: 16px !important; background: #faf8ff !important; color: #6d3df0; cursor: pointer; transition: all 0.25s; }
+[id="media_upload"]:hover { background: #f1ecff !important; border-color: #7c3aed !important; transform: scale(1.015); }
+.rt-Card .rt-Text { animation: slidein 0.35s ease both; }
+@keyframes slidein { from { opacity: 0; transform: translateX(-12px); } to { opacity: 1; transform: none; } }
+.rt-AlertDialogContent, .rt-DialogContent { background: #fff !important; border-radius: 18px; }
+.rt-Link { color: #6d3df0; }
