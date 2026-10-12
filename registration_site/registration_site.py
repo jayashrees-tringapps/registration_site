@@ -28,6 +28,19 @@ class Media(rx.Model, table=True):
     file_name: str
     size_kb: int
     file_data: bytes = Field(sa_column=Column(LargeBinary))
+#email check
+def check_email(email):
+    if len(email) > 254 or " " in email:
+        return False 
+    if email.count("@") != 1:
+        return False
+    name, domain = email.split("@") 
+    if name == "" or domain == "": 
+        return False
+    if "." not in domain or domain.startswith(".") or domain.endswith(".") or ".." in domain:
+        return False 
+    ending = domain.split(".")[-1] 
+    return ending.isalpha() and len(ending) >= 2 
 # logic
 class State(rx.State):
     show_popup: bool = False
@@ -81,6 +94,9 @@ class State(rx.State):
         month = form_data["dob_month"]
         year = form_data["dob_year"]
         dob = day + "/" + month + "/" + year
+        if not check_email(email):
+            self.open_popup("Error", "Please enter a valid email.")
+            return
         if not phone.isdigit() or len(phone) != 10:
             self.open_popup("Error", "Phone number must be 10 digits.")
             return
@@ -114,7 +130,7 @@ class State(rx.State):
   
     def login(self, form_data: dict):
         email = form_data["email"].strip().lower()
-        hashed = hashlib.sha256(form_data["password"].encode()).hexdigest()
+        hashed = hashlib.sha256(form_data["password"].encode()).hexdigest() #64 hexadecimal letters
         with rx.session() as session:
             user = session.exec(select(Registration).where(Registration.email == email)).first()
         if user is None or user.password != hashed:
@@ -201,6 +217,9 @@ class State(rx.State):
         day = form_data["dob_day"]
         month = form_data["dob_month"]
         year = form_data["dob_year"]
+        if not check_email(email): 
+            self.open_popup("Error", "Please enter a valid email.")
+            return 
         if not phone.isdigit() or len(phone) != 10:
             self.open_popup("Error", "Phone number must be 10 digits.")
             return
